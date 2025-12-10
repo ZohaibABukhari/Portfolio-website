@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Brighter, engineered graph-paper energy:
-  - vibrant blue base similar to the sample
-  - fine subgrid lines
-  - thicker white separators every major block to create the 3x3/large-cell feel
+  Smaller, subtler grid:
+  - smaller base cell (8px)
+  - lower stroke opacity for subgrid and medium lines
+  - lighter major separators so they don't overwhelm text
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" preserveAspectRatio="none">
   <defs>
-    <!-- small cell: 12x12 for crisp subgrid -->
-    <pattern id="smallGrid" width="12" height="12" patternUnits="userSpaceOnUse">
-      <rect width="12" height="12" fill="#2f97ff"/>
-      <path d="M12 0 L12 12 M0 12 L12 12" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="0.6"/>
+    <!-- small subcell -->
+    <pattern id="smallGrid" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#2f97ff"/>
+      <path d="M8 0 L8 8 M0 8 L8 8" fill="none" stroke="#ffffff" stroke-opacity="0.045" stroke-width="0.45"/>
     </pattern>
 
-    <!-- medium cell (group of 5 small cells -> 60px) - thin guiding lines -->
-    <pattern id="mediumGrid" width="60" height="60" patternUnits="userSpaceOnUse">
-      <rect width="60" height="60" fill="url(#smallGrid)"/>
-      <!-- subtle inner medium lines (lighter) -->
-      <path d="M0 0 L60 0 L60 60 L0 60 Z" fill="none" stroke="#ffffff" stroke-opacity="0.13" stroke-width="1"/>
+    <!-- medium grouping (5 small cells -> 40px) -->
+    <pattern id="mediumGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect width="40" height="40" fill="url(#smallGrid)"/>
+      <path d="M0 0 L40 0 L40 40 L0 40 Z" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="0.9"/>
     </pattern>
 
-    <!-- major separators (every 3 medium blocks -> create big separators like the sample) -->
-    <pattern id="majorGrid" width="180" height="180" patternUnits="userSpaceOnUse">
-      <rect width="180" height="180" fill="url(#mediumGrid)"/>
-      <!-- thick separators to mimic the strong white gutters in sample -->
-      <path d="M0 60 L180 60 M0 120 L180 120 M60 0 L60 180 M120 0 L120 180" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="square" stroke-opacity="0.95"/>
+    <!-- major separators (three medium blocks -> 120px) -->
+    <pattern id="majorGrid" width="120" height="120" patternUnits="userSpaceOnUse">
+      <rect width="120" height="120" fill="url(#mediumGrid)"/>
+      <!-- softer separators than before -->
+      <path d="M0 40 L120 40 M0 80 L120 80 M40 0 L40 120 M80 0 L80 120" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="square" stroke-opacity="0.6"/>
     </pattern>
   </defs>
 
-  <!-- Fill whole tile with the composed patterns -->
   <rect width="100%" height="100%" fill="url(#majorGrid)"/>
 </svg>
