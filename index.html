@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zohaib Abbas Bukhari — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <div class="nav-left">
+      <a class="brand" href="index.html">Zohaib Abbas Bukhari</a>
+    </div>
+    <button class="sidebar-toggle" aria-label="Open pages menu">Pages ▾</button>
+    <div class="nav-right">
+      <a href="mailto:zohaibabukhari@outlook.com" aria-label="Email" class="icon-link">
+        <img src="assets/email.svg" alt="email" />
+      </a>
+      <a href="https://www.linkedin.com/in/zohaib-abbas-bukhari/" target="_blank" rel="noopener" aria-label="LinkedIn" class="icon-link">
+        <img src="assets/linkedin.svg" alt="linkedin" />
+      </a>
+    </div>
+  </header>
+
+  <!-- Sidebar (hidden by default) -->
+  <aside class="sidebar" aria-hidden="true">
+    <nav>
+      <ul>
+        <li><a href="index.html">Featured</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="page-content">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <h1>Driven mechanical engineer excited to design systems, solve impossible problems, and turn imagination into reality.</h1>
+        <div class="hero-cta">
+          <a class="btn primary" href="projects.html">View Projects</a>
+          <a class="btn outline" href="about.html">About Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="featured">
+      <div class="section-header">
+        <h2>Featured Projects</h2>
+        <p class="muted">A curated selection — swipe or use arrows to browse.</p>
+      </div>
+
+      <div class="scroller-wrap">
+        <button class="scroller-btn left" aria-label="Scroll left"><img src="assets/arrow-left.svg" alt="left"/></button>
+        <div class="scroller" tabindex="0">
+          <!-- 5 project cards (copy-paste template to add more) -->
+          <article class="project-card" data-project="project-1">
+            <img class="thumb" src="assets/project1.svg" alt="Project 1 thumbnail"/>
+            <div class="card-body">
+              <h3>Precision Actuator System</h3>
+              <p>Design and prototyping of a high-precision linear actuator for automation tools.</p>
+              <div class="card-actions">
+                <button class="btn lightbox-open" data-src="assets/project1.svg">Open</button>
+                <a class="btn ghost" href="projects.html#project-1">View Full Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="project-2">
+            <img class="thumb" src="assets/project2.svg" alt="Project 2 thumbnail"/>
+            <div class="card-body">
+              <h3>Thermal Management Pack</h3>
+              <p>System-level thermal solution for compact electronics in harsh environments.</p>
+              <div class="card-actions">
+                <button class="btn lightbox-open" data-src="assets/project2.svg">Open</button>
+                <a class="btn ghost" href="projects.html#project-2">View Full Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="project-3">
+            <img class="thumb" src="assets/project3.svg" alt="Project 3 thumbnail"/>
+            <div class="card-body">
+              <h3>Robust Gearbox Concept</h3>
+              <p>Compact gearbox design trade-offs, FEA-driven optimization, and prototype testing.</p>
+              <div class="card-actions">
+                <button class="btn lightbox-open" data-src="assets/project3.svg">Open</button>
+                <a class="btn ghost" href="projects.html#project-3">View Full Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="project-4">
+            <img class="thumb" src="assets/project4.svg" alt="Project 4 thumbnail"/>
+            <div class="card-body">
+              <h3>Structural Topology Study</h3>
+              <p>Topology optimization study for weight reduction while maintaining safety factors.</p>
+              <div class="card-actions">
+                <button class="btn lightbox-open" data-src="assets/project4.svg">Open</button>
+                <a class="btn ghost" href="projects.html#project-4">View Full Project</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-project="project-5">
+            <img class="thumb" src="assets/project5.svg" alt="Project 5 thumbnail"/>
+            <div class="card-body">
+              <h3>Automation Workcell Design</h3>
+              <p>End-to-end cell design integrating controls, safety, and efficient tooling layout.</p>
+              <div class="card-actions">
+                <button class="btn lightbox-open" data-src="assets/project5.svg">Open</button>
+                <a class="btn ghost" href="projects.html#project-5">View Full Project</a>
+              </div>
+            </div>
+          </article>
+        </div>
+        <button class="scroller-btn right" aria-label="Scroll right"><img src="assets/arrow-right.svg" alt="right"/></button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Lightbox container (created by script) -->
+
+  <script src="script.js"></script>
+</body>
+</html>

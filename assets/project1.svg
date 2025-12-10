@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="480" viewBox="0 0 800 480">
+  <rect width="100%" height="100%" fill="#fff" />
+  <rect x="24" y="24" width="752" height="432" fill="#e6f6ff" stroke="#cfeefe" stroke-width="2" rx="8"/>
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#0b2a3b" font-size="28" font-family="Inter, sans-serif">Precision Actuator — Thumbnail</text>
+</svg>
