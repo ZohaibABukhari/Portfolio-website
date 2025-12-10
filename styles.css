@@ -1,10 +1,10 @@
 /*
   styles.css — single stylesheet for Portfolio
-  Color + design: blueprint-inspired, subtle grid background, electric blue accents, charcoal text.
+  Color + design: engineered blueprint paper energy, centered brand, left Tabs control.
 */
 :root{
-  --bg-blue: #eaf4ff; /* very light blue — tuned for engineering paper */
-  --grid-line: rgba(255,255,255,0.62);
+  --bg-blue: #2f97ff; /* tuned to match the energetic blueprint sample */
+  --paper-tint: #39a8ff;
   --card: #ffffff;
   --text: #0f1724; /* charcoal */
   --muted: #47525a;
@@ -16,14 +16,16 @@
   font-family: Inter, Roboto, system-ui, -apple-system, 'Segoe UI', Arial;
 }
 
-/* Background grid texture */
+/* Background grid (the visual energy from provided image) */
 html,body{height:100%;}
 body{
   margin:0;
-  background-color:var(--bg-blue);
+  /* base fill matches the vibrant blue in the sample */
+  background-color: var(--bg-blue);
+  /* tiled SVG grid (see assets/grid.svg) */
   background-image: url('assets/grid.svg');
-  background-size: 240px 240px;
   background-repeat: repeat;
+  background-size: auto;
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -31,21 +33,65 @@ body{
 
 /* Top nav */
 .top-nav{
-  position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;z-index:60;
-  backdrop-filter: blur(6px);
-  background: linear-gradient(180deg, rgba(255,255,255,0.60), rgba(255,255,255,0.36));
-  border-bottom:1px solid rgba(15,23,36,0.06);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 1rem;
+  z-index:60;
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  /* keep relative so centered brand can be absolutely centered within it */
+  position:fixed;
 }
-.brand{font-weight:700;letter-spacing:0.4px;color:var(--accent-strong);text-decoration:none;font-family: 'Courier New', monospace;}
-.nav-right{display:flex;gap:0.5rem;align-items:center}
+
+/* left control group (Tabs) */
+.nav-left{display:flex;align-items:center;gap:8px;min-width:140px}
+
+/* centered brand */
+.brand{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  text-decoration:none;
+  color:white;
+  font-weight:700;
+  font-size:1rem;
+  letter-spacing:0.6px;
+  padding:6px 10px;
+  border-radius:6px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.02));
+  box-shadow: 0 6px 20px rgba(2,132,199,0.12);
+  font-family: 'Courier New', monospace;
+}
+
+/* right icon group anchored on the right */
+.nav-right{display:flex;gap:0.5rem;align-items:center;min-width:140px;justify-content:flex-end}
 .icon-link img{width:20px;height:20px;opacity:0.95}
 .icon-link{display:inline-flex;align-items:center;padding:6px;border-radius:6px}
 .icon-link:hover{box-shadow:0 8px 28px rgba(2,132,199,0.12);transform:translateY(-2px);transition:var(--transition)}
 
-.sidebar-toggle{background:none;border:0;font:inherit;padding:8px 10px;border-radius:6px;cursor:pointer;color:var(--muted)}
+/* Tabs button */
+.sidebar-toggle{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.18);
+  color:white;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  font-weight:600;
+  letter-spacing:0.3px;
+  backdrop-filter: blur(4px);
+}
+.sidebar-toggle:hover{box-shadow:0 8px 30px rgba(2,132,199,0.12);transform:translateY(-2px)}
 
-/* Sidebar */
-.sidebar{position:fixed;left:18px;top:84px;width:220px;background:rgba(255,255,255,0.85);backdrop-filter: blur(6px);border-radius:8px;padding:12px;box-shadow:0 8px 30px rgba(15,23,36,0.06);transform:translateX(-110%);transition:var(--transition);z-index:50}
+/* Sidebar panel */
+.sidebar{position:fixed;left:18px;top:84px;width:220px;background:rgba(255,255,255,0.95);backdrop-filter: blur(6px);border-radius:8px;padding:12px;box-shadow:0 8px 30px rgba(15,23,36,0.06);transform:translateX(-110%);transition:var(--transition);z-index:50}
 .sidebar.open{transform:translateX(0)}
 .sidebar nav ul{list-style:none;margin:0;padding:0}
 .sidebar nav li{margin:10px 0}
@@ -61,7 +107,7 @@ body{
 .hero-inner{max-width:900px;text-align:center}
 .hero h1{font-size:1.35rem;line-height:1.4;color:var(--text);margin:0 0 18px;font-weight:600}
 .hero .lead{color:var(--muted)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;border:1px solid transparent;text-decoration:none;font-weight:600;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;border:1px solid.transparent;text-decoration:none;font-weight:600;cursor:pointer}
 .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-strong));color:white;box-shadow:0 8px 24px rgba(2,132,199,0.14)}
 .btn.outline{background:transparent;border:1px solid rgba(2,132,199,0.12);color:var(--accent-strong)}
 .btn.ghost{background:transparent;border:1px dashed rgba(2,132,199,0.08);color:var(--accent-strong)}
@@ -72,8 +118,8 @@ body{
 .scroller-wrap{position:relative;display:flex;align-items:center}
 .scroller{display:flex;gap:18px;overflow-x:auto;padding:12px 18px;scroll-behavior:smooth}
 .scroller::-webkit-scrollbar{height:8px}
-.scroller::-webkit-scrollbar-thumb{background:rgba(2,132,199,0.2);border-radius:6px}
-.project-card{flex:0 0 calc((100% - 72px) / 3);background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));border-radius:10px;padding:0;display:flex;flex-direction:column;overflow:hidden;min-width:320px}
+.scroller::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.18);border-radius:6px}
+.project-card{flex:0 0 calc((100% - 72px) / 3);background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));border-radius:10px;padding:0;display:flex;flex-direction:column;overflow:hidden;min-width:320px}
 .project-card img.thumb{width:100%;height:160px;object-fit:cover;display:block}
 .card-body{padding:14px}
 .card-body h3{margin:0 0 8px;font-size:1.05rem}
@@ -83,7 +129,6 @@ body{
 .scroller-btn img{width:16px;height:16px;opacity:0.9}
 
 /* Projects page specifics */
-/* Removed sticky positioning so library no longer blocks view while scrolling */
 .projects-page .project-list{position:relative;top:auto;}
 .project-links{list-style:none;padding:0;margin:0}
 .project-links li{margin:8px 0}
@@ -110,6 +155,7 @@ body{
 @media (max-width:1000px){
   .project-card{flex:0 0 calc((100% - 48px) / 2);min-width:300px}
   .project-img{width:220px}
+  .brand{font-size:0.95rem;padding:5px 8px}
 }
 @media (max-width:640px){
   .top-nav{height:56px;padding:0 10px}
@@ -119,6 +165,7 @@ body{
   .project-media{flex-direction:column}
   .project-img{width:100%;}
   .sidebar{position:fixed}
+  .brand{position:static;transform:none;margin:0 auto}
 }
 
 /* small helpers */

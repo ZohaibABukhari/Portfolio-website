@@ -1,13 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Brighter, engineered graph-paper energy:
+  - vibrant blue base similar to the sample
+  - fine subgrid lines
+  - thicker white separators every major block to create the 3x3/large-cell feel
+-->
 <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" preserveAspectRatio="none">
   <defs>
-    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <rect width="20" height="20" fill="#eaf4ff" />
-      <!-- faint primary grid lines -->
-      <path d="M20 0 L20 20 L0 20" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="0.9"/>
-      <!-- ultra-fine subgrid -->
-      <path d="M10 0 L10 20 M0 10 L20 10" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="0.5"/>
+    <!-- small cell: 12x12 for crisp subgrid -->
+    <pattern id="smallGrid" width="12" height="12" patternUnits="userSpaceOnUse">
+      <rect width="12" height="12" fill="#2f97ff"/>
+      <path d="M12 0 L12 12 M0 12 L12 12" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="0.6"/>
+    </pattern>
+
+    <!-- medium cell (group of 5 small cells -> 60px) - thin guiding lines -->
+    <pattern id="mediumGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <rect width="60" height="60" fill="url(#smallGrid)"/>
+      <!-- subtle inner medium lines (lighter) -->
+      <path d="M0 0 L60 0 L60 60 L0 60 Z" fill="none" stroke="#ffffff" stroke-opacity="0.13" stroke-width="1"/>
+    </pattern>
+
+    <!-- major separators (every 3 medium blocks -> create big separators like the sample) -->
+    <pattern id="majorGrid" width="180" height="180" patternUnits="userSpaceOnUse">
+      <rect width="180" height="180" fill="url(#mediumGrid)"/>
+      <!-- thick separators to mimic the strong white gutters in sample -->
+      <path d="M0 60 L180 60 M0 120 L180 120 M60 0 L60 180 M120 0 L120 180" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="square" stroke-opacity="0.95"/>
     </pattern>
   </defs>
-  <rect width="100%" height="100%" fill="url(#grid)"/>
+
+  <!-- Fill whole tile with the composed patterns -->
+  <rect width="100%" height="100%" fill="url(#majorGrid)"/>
 </svg>
