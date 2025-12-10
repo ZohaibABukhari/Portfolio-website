@@ -3,14 +3,14 @@
   Color + design: blueprint-inspired, subtle grid background, electric blue accents, charcoal text.
 */
 :root{
-  --bg-blue: #eaf3ff; /* very light blue */
-  --grid-line: rgba(255,255,255,0.6);
+  --bg-blue: #eaf4ff; /* very light blue — tuned for engineering paper */
+  --grid-line: rgba(255,255,255,0.62);
   --card: #ffffff;
-  --text: #111827; /* charcoal */
-  --muted: #525b67;
+  --text: #0f1724; /* charcoal */
+  --muted: #47525a;
   --accent: #0ea5ff; /* electric-blue */
   --accent-strong: #0284c7;
-  --glass: rgba(255,255,255,0.7);
+  --glass: rgba(255,255,255,0.78);
   --radius: 10px;
   --transition: 220ms cubic-bezier(.2,.9,.3,1);
   font-family: Inter, Roboto, system-ui, -apple-system, 'Segoe UI', Arial;
@@ -23,6 +23,7 @@ body{
   background-color:var(--bg-blue);
   background-image: url('assets/grid.svg');
   background-size: 240px 240px;
+  background-repeat: repeat;
   color:var(--text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
@@ -32,14 +33,14 @@ body{
 .top-nav{
   position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;z-index:60;
   backdrop-filter: blur(6px);
-  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.35));
+  background: linear-gradient(180deg, rgba(255,255,255,0.60), rgba(255,255,255,0.36));
   border-bottom:1px solid rgba(15,23,36,0.06);
 }
 .brand{font-weight:700;letter-spacing:0.4px;color:var(--accent-strong);text-decoration:none;font-family: 'Courier New', monospace;}
 .nav-right{display:flex;gap:0.5rem;align-items:center}
-.icon-link img{width:20px;height:20px;filter:grayscale(40%);opacity:0.95}
+.icon-link img{width:20px;height:20px;opacity:0.95}
 .icon-link{display:inline-flex;align-items:center;padding:6px;border-radius:6px}
-.icon-link:hover{box-shadow:0 6px 18px rgba(14,165,255,0.12);transform:translateY(-2px);transition:var(--transition)}
+.icon-link:hover{box-shadow:0 8px 28px rgba(2,132,199,0.12);transform:translateY(-2px);transition:var(--transition)}
 
 .sidebar-toggle{background:none;border:0;font:inherit;padding:8px 10px;border-radius:6px;cursor:pointer;color:var(--muted)}
 
@@ -60,7 +61,7 @@ body{
 .hero-inner{max-width:900px;text-align:center}
 .hero h1{font-size:1.35rem;line-height:1.4;color:var(--text);margin:0 0 18px;font-weight:600}
 .hero .lead{color:var(--muted)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;border:1px solid.transparent;text-decoration:none;font-weight:600;cursor:pointer}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:8px;border:1px solid transparent;text-decoration:none;font-weight:600;cursor:pointer}
 .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-strong));color:white;box-shadow:0 8px 24px rgba(2,132,199,0.14)}
 .btn.outline{background:transparent;border:1px solid rgba(2,132,199,0.12);color:var(--accent-strong)}
 .btn.ghost{background:transparent;border:1px dashed rgba(2,132,199,0.08);color:var(--accent-strong)}
@@ -82,7 +83,8 @@ body{
 .scroller-btn img{width:16px;height:16px;opacity:0.9}
 
 /* Projects page specifics */
-.projects-page .project-list{position:sticky;top:84px}
+/* Removed sticky positioning so library no longer blocks view while scrolling */
+.projects-page .project-list{position:relative;top:auto;}
 .project-links{list-style:none;padding:0;margin:0}
 .project-links li{margin:8px 0}
 .project-links a{text-decoration:none;color:var(--accent-strong);font-weight:600}
